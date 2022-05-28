@@ -1,0 +1,9 @@
+.overlay {
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  background-color: rgba($color: hsl(0, 0%, 13%), $alpha: 0.3);
+  z-index: -1;
+}
