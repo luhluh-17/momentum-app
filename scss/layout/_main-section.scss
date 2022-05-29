@@ -8,9 +8,14 @@ main {
   height: 100vh;
   width: 100vw;
   opacity: 0;
-  padding: 1rem;
+  padding: var(--space-md);
+
+  input[type='text'] {
+    font-size: var(--heading4);
+    width: 100%;
+  }
 }
 
 main[data-show] {
-  animation: slide-up-enter 1.5s ease forwards;
+  animation: slide-up-enter var(--anim-speed) ease forwards;
 }

@@ -1,7 +1,7 @@
 .modal {
   background-color: transparent;
   border: 0;
-  padding: 1rem;
+  padding: var(--space-df);
   user-select: none;
 }
 
@@ -10,12 +10,12 @@
 }
 
 .modal[open] {
-  animation: slide-up-enter 1.5s ease forwards;
+  animation: slide-up-enter var(--anim-speed) ease forwards;
 }
 
 .modal[closing] {
   display: block;
   inset: 0;
   pointer-events: none;
-  animation: slide-up-exit 1.5s ease forwards;
+  animation: slide-up-exit var(--anim-speed) ease forwards;
 }

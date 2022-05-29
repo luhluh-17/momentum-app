@@ -18,16 +18,17 @@
   <div class="background"></div>
   <main data-main class="flex-col">
     <div class="weather">
-      <h3>
-        Cloudy
-        <i class="fa-solid fa-cloud-sun"></i>
-      </h3>
+      <h4>Cloudy<i class="fa-solid fa-cloud-sun"></i></h4>
     </div>
     <div>
       <h1 data-clock>9:00 AM</h1>
       <h2><span data-greeting>Hello</span>, <span data-name>User</span>.</h2>
+      <h3 class="mt-md">What is your main focus for today?</h3>
+      <form class="mt-sm" method="dialog">
+        <input type="text" class="text-input">
+      </form>
     </div>
-    <div class="quote">
+    <div>
       <h4>
         <i class="fa-solid fa-quote-left"></i>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, porro.
@@ -40,7 +41,7 @@
   <dialog class="modal" data-modal-name>
     <div class="flex-col">
       <h2>Hello there, how should I call you?</h2>
-      <form class="form flex-col" method="dialog">
+      <form class="flex-col" method="dialog">
         <input type="text" class="text-input" data-input-name required autofocus>
         <button class="button" type="submit">
           Continue
@@ -53,8 +54,8 @@
   <dialog class="modal" data-modal-activity>
     <div class="flex-col">
       <h2>Nice to meet you <span data-name>User</span>,</h2>
-      <h2>What is your main focus today?</h2>
-      <form class="form flex-col" method="dialog">
+      <h2>What is your main focus for today?</h2>
+      <form class="flex-col" method="dialog">
         <input type="text" class="text-input" data-input-activity autofocus>
         <button class="button" type="submit">
           Continue

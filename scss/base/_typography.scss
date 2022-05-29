@@ -6,18 +6,18 @@ input {
   text-align: center;
 }
 
-input {
-  font-size: 3rem;
+input[type='text'] {
+  font-size: var(--heading2);
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: var(--heading1);
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: var(--heading2);
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: var(--heading3);
 }

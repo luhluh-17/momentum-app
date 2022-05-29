@@ -8,8 +8,17 @@ const main = document.querySelector('[data-main]')
 
 let user, activity
 
-window.onload = () => modalName.showModal()
-closeModal(modalName, modalAct)
+// TODO: Remove Debug Mode
+const debugMode = true
+if (debugMode) {
+  main.setAttribute('data-show', '')
+  user = 'Debug Mode'
+  displayUser(user)
+} else {
+  window.onload = () => modalName.showModal()
+  closeModal(modalName, modalAct)
+}
+
 setInterval(currentTime, 1000)
 
 function closeModal(curr, next) {

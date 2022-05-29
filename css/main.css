@@ -1,3 +1,19 @@
+:root {
+  --heading1: 6rem;
+  --heading2: 3rem;
+  --heading3: 2rem;
+  --heading4: 1.75rem;
+  --space-unit: 1rem;
+  --space-xxs: calc(0.25 * var(--space-unit));
+  --space-xs: calc(0.5 * var(--space-unit));
+  --space-sm: calc(0.75 * var(--space-unit));
+  --space-df: calc(1 * var(--space-unit));
+  --space-md: calc(1.25 * var(--space-unit));
+  --space-lg: calc(1.5 * var(--space-unit));
+  --space-xlg: calc(2 * var(--space-unit));
+  --anim-speed: 0s;
+}
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -30,31 +46,39 @@ input {
   text-align: center;
 }
 
-input {
-  font-size: 3rem;
+input[type=text] {
+  font-size: var(--heading2);
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: var(--heading1);
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: var(--heading2);
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: var(--heading3);
 }
 
 .flex-col {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-lg);
   align-items: center;
 }
 
 .ml {
-  margin-left: 0.25rem;
+  margin-left: var(--space-xxs);
+}
+
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+
+.mt-md {
+  margin-top: var(--space-md);
 }
 
 @keyframes slide-up-enter {
@@ -118,7 +142,7 @@ input[type=text]:focus {
 .modal {
   background-color: transparent;
   border: 0;
-  padding: 1rem;
+  padding: var(--space-df);
   user-select: none;
 }
 
@@ -127,14 +151,14 @@ input[type=text]:focus {
 }
 
 .modal[open] {
-  animation: slide-up-enter 1.5s ease forwards;
+  animation: slide-up-enter var(--anim-speed) ease forwards;
 }
 
 .modal[closing] {
   display: block;
   inset: 0;
   pointer-events: none;
-  animation: slide-up-exit 1.5s ease forwards;
+  animation: slide-up-exit var(--anim-speed) ease forwards;
 }
 
 body {
@@ -147,11 +171,15 @@ main {
   height: 100vh;
   width: 100vw;
   opacity: 0;
-  padding: 1rem;
+  padding: var(--space-md);
+}
+main input[type=text] {
+  font-size: var(--heading4);
+  width: 100%;
 }
 
 main[data-show] {
-  animation: slide-up-enter 1.5s ease forwards;
+  animation: slide-up-enter var(--anim-speed) ease forwards;
 }
 
 /*# sourceMappingURL=main.css.map */
