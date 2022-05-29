@@ -2,12 +2,11 @@
   position: fixed;
   display: block;
   inset: 0;
-  z-index: 2;
   background-color: hsl(0, 0%, 80%);
   background-image: url('../assets/bg-min.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
-  z-index: -2;
+  z-index: -1;
 }

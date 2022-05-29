@@ -1,16 +1,10 @@
 @use '../scss/' as *;
 
 main {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
   height: 100vh;
   width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
   padding: 1rem;
-}
-
-.quote {
-  display: flex;
-  flex-direction: column;
 }

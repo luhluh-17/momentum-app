@@ -1,0 +1,14 @@
+.button {
+  background-color: rgba($color: #212121, $alpha: 0.25);
+  border: 2px solid white;
+  border-radius: 16px;
+  color: white;
+  padding: 8px 16px;
+  opacity: 0.6;
+  transition: 0.3s;
+  &:hover {
+    background-color: rgba($color: #212121, $alpha: 0);
+    cursor: pointer;
+    opacity: 1;
+  }
+}

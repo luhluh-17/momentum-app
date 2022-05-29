@@ -1,7 +1,13 @@
-body {
+body,
+dialog,
+input {
   font-family: 'Roboto', sans-serif;
   color: white;
   text-align: center;
+}
+
+input {
+  font-size: 3rem;
 }
 
 h1 {
@@ -9,7 +15,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 h3 {

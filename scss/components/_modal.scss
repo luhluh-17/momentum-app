@@ -1,0 +1,43 @@
+.modal {
+  background-color: transparent;
+  border: 0;
+  padding: 1rem;
+  user-select: none;
+}
+
+.modal::backdrop {
+  background-color: transparent;
+}
+
+.modal[open] {
+  animation: slide-up-enter 1.5s ease forwards;
+}
+
+.modal[data-closing] {
+  display: block;
+  inset: 0;
+  pointer-events: none;
+  animation: slide-up-exit 1.5s ease forwards;
+}
+
+@keyframes slide-up-enter {
+  from {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up-exit {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-200%);
+    opacity: 0.2;
+  }
+}

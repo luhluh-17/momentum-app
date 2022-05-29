@@ -22,10 +22,16 @@ img {
   height: auto;
 }
 
-body {
+body,
+dialog,
+input {
   font-family: "Roboto", sans-serif;
   color: white;
   text-align: center;
+}
+
+input {
+  font-size: 3rem;
 }
 
 h1 {
@@ -33,7 +39,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 h3 {
@@ -44,29 +50,100 @@ h3 {
   position: fixed;
   display: block;
   inset: 0;
-  z-index: 2;
   background-color: hsl(0deg, 0%, 80%);
   background-image: url("../assets/bg-min.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
-  z-index: -2;
+  z-index: -1;
+}
+
+.button {
+  background-color: rgba(33, 33, 33, 0.25);
+  border: 2px solid white;
+  border-radius: 16px;
+  color: white;
+  padding: 8px 16px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.button:hover {
+  background-color: rgba(33, 33, 33, 0);
+  cursor: pointer;
+  opacity: 1;
+}
+
+input[type=text] {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+}
+input[type=text]:focus {
+  background: transparent;
+  outline: none;
+}
+
+.modal {
+  background-color: transparent;
+  border: 0;
+  padding: 1rem;
+  user-select: none;
+}
+
+.modal::backdrop {
+  background-color: transparent;
+}
+
+.modal[open] {
+  animation: slide-up-enter 1.5s ease forwards;
+}
+
+.modal[data-closing] {
+  display: block;
+  inset: 0;
+  pointer-events: none;
+  animation: slide-up-exit 1.5s ease forwards;
+}
+
+@keyframes slide-up-enter {
+  from {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes slide-up-exit {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-200%);
+    opacity: 0.2;
+  }
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.ml {
+  margin-left: 0.25rem;
 }
 
 main {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
   height: 100vh;
   width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
   padding: 1rem;
-}
-
-.quote {
-  display: flex;
-  flex-direction: column;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,3 +1,23 @@
+const modal = document.querySelector('[data-modal-name]')
+const inputName = document.querySelector('[data-input-name]')
+
+let user
+
+window.onload = () => modal.showModal()
+closeModal()
+setInterval(currentTime, 1000)
+
+function closeModal() {
+  modal.addEventListener('close', () => {
+    modal.setAttribute('data-closing', '')
+    modal.addEventListener('animationend', () => {
+      modal.close()
+      modal.removeAttribute('data-closing')
+    })
+    user = inputName.value.charAt(0).toUpperCase() + inputName.value.slice(1)
+  })
+}
+
 function currentTime() {
   const date = new Date()
   let hh = date.getHours()
@@ -14,7 +34,7 @@ function currentTime() {
   greetUser('User')
 }
 
-function greetUser(user) {
+function greetUser(name) {
   const date = new Date()
   let hh = date.getHours()
 
@@ -22,15 +42,12 @@ function greetUser(user) {
 
   if (hh >= 6 && hh <= 11) {
     greet = 'Good morning'
-  } else if(hh >= 12 && hh <= 16) {
+  } else if (hh >= 12 && hh <= 16) {
     greet = 'Good afternoon'
-  } else if(hh >= 17 && hh <= 24) {
+  } else if (hh >= 17 && hh <= 24) {
     greet = 'Good evening'
   }
 
   document.querySelector('[data-greeting]').textContent = greet
-  document.querySelector('[data-name]').textContent = user
+  document.querySelector('[data-name]').textContent = name
 }
-
-setInterval(currentTime, 1000)
-
