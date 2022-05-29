@@ -23,6 +23,7 @@ function closeModal(curr, next) {
       next.showModal()
       closeModal(next, null)
       user = capitalizeWord(inputName.value)
+      displayUser(user)
     } else {
       activity = capitalizeWord(inputAct.value)
       main.setAttribute('data-show', '')
@@ -36,6 +37,13 @@ function capitalizeWord(str) {
     arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1)
   }
   return arr.join(' ')
+}
+
+function displayUser(name) {
+  let placeholders = document.querySelectorAll('[data-name]')
+  placeholders.forEach((element) => {
+    element.textContent = name
+  })
 }
 
 function currentTime() {
@@ -54,13 +62,13 @@ function currentTime() {
   greetUser(user)
 }
 
-function greetUser(name) {
+function greetUser() {
   const date = new Date()
   let hh = date.getHours()
 
   let greet = 'Hello'
 
-  if (hh >= 6 && hh <= 11) {
+  if (hh >= 4 && hh <= 11) {
     greet = 'Good morning'
   } else if (hh >= 12 && hh <= 16) {
     greet = 'Good afternoon'
@@ -69,5 +77,4 @@ function greetUser(name) {
   }
 
   document.querySelector('[data-greeting]').textContent = greet
-  document.querySelector('[data-name]').textContent = name
 }
