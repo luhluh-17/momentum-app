@@ -16,7 +16,7 @@
 
 <body>
   <div class="background"></div>
-  <main>
+  <main class="flex-col">
     <div class="weather">
       <h3>
         Cloudy
@@ -42,6 +42,19 @@
       <h2>Hello there, how should I call you?</h2>
       <form class="form flex-col" method="dialog">
         <input type="text" class="text-input" data-input-name required autofocus>
+        <button class="button" type="submit">
+          Continue
+          <i class="fa-solid fa-angle-right ml"></i>
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="modal" data-modal-activity>
+    <div class="flex-col">
+      <h2>Nice to meet you, what is your main focus today?</h2>
+      <form class="form flex-col" method="dialog">
+        <input type="text" class="text-input" data-input-activity autofocus>
         <button class="button" type="submit">
           Continue
           <i class="fa-solid fa-angle-right ml"></i>

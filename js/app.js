@@ -1,21 +1,38 @@
-const modal = document.querySelector('[data-modal-name]')
+const modalName = document.querySelector('[data-modal-name]')
 const inputName = document.querySelector('[data-input-name]')
 
-let user
+const modalAct = document.querySelector('[data-modal-activity]')
+const inputAct = document.querySelector('[data-input-activity]')
 
-window.onload = () => modal.showModal()
-closeModal()
+let user, activity
+
+window.onload = () => modalName.showModal()
+closeModal(modalName, modalAct)
 setInterval(currentTime, 1000)
 
-function closeModal() {
-  modal.addEventListener('close', () => {
-    modal.setAttribute('data-closing', '')
-    modal.addEventListener('animationend', () => {
-      modal.close()
-      modal.removeAttribute('data-closing')
+function closeModal(curr, next) {
+  curr.addEventListener('close', () => {
+    curr.setAttribute('data-closing', '')
+    curr.addEventListener('animationend', () => {
+      curr.close()
+      curr.removeAttribute('data-closing')
     })
-    user = inputName.value.charAt(0).toUpperCase() + inputName.value.slice(1)
+    if (next === modalAct) {
+      next.showModal()
+      closeModal(modalAct, null)
+      user = capitalizeWord(inputName.value)
+    } else {
+      activity = capitalizeWord(inputAct.value)
+    }
   })
+}
+
+function capitalizeWord(str) {
+  const arr = str.split(' ')
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1)
+  }
+  return arr.join(' ')
 }
 
 function currentTime() {
@@ -31,7 +48,7 @@ function currentTime() {
   let time = `${hh}:${mm} ${session}`
   document.querySelector('[data-clock]').textContent = time
 
-  greetUser('User')
+  greetUser(user)
 }
 
 function greetUser(name) {

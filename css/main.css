@@ -46,6 +46,26 @@ h3 {
   font-size: 1.5rem;
 }
 
+@keyframes slide-up-enter {
+  from {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes slide-up-exit {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+}
 .background {
   position: fixed;
   display: block;
@@ -106,26 +126,6 @@ input[type=text]:focus {
   animation: slide-up-exit 1.5s ease forwards;
 }
 
-@keyframes slide-up-enter {
-  from {
-    transform: translateY(200%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
-@keyframes slide-up-exit {
-  from {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-200%);
-    opacity: 0.2;
-  }
-}
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -138,7 +138,6 @@ input[type=text]:focus {
 }
 
 main {
-  display: none;
   align-items: center;
   justify-content: space-between;
   height: 100vh;
