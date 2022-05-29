@@ -1,11 +1,13 @@
 @forward 'base/reset';
 @forward 'base/typography';
 
+@forward 'utils/display';
+@forward 'utils/margin';
+
 @forward 'components/animation';
 @forward 'components/background';
 @forward 'components/button';
 @forward 'components/input';
 @forward 'components/modal';
 
-@forward 'utils/display';
-@forward 'utils/margin';
+@forward 'layout/main-section';

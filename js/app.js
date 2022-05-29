@@ -4,6 +4,8 @@ const inputName = document.querySelector('[data-input-name]')
 const modalAct = document.querySelector('[data-modal-activity]')
 const inputAct = document.querySelector('[data-input-activity]')
 
+const main = document.querySelector('[data-main]')
+
 let user, activity
 
 window.onload = () => modalName.showModal()
@@ -12,17 +14,18 @@ setInterval(currentTime, 1000)
 
 function closeModal(curr, next) {
   curr.addEventListener('close', () => {
-    curr.setAttribute('data-closing', '')
+    curr.setAttribute('closing', '')
     curr.addEventListener('animationend', () => {
       curr.close()
-      curr.removeAttribute('data-closing')
+      curr.removeAttribute('closing')
     })
     if (next === modalAct) {
       next.showModal()
-      closeModal(modalAct, null)
+      closeModal(next, null)
       user = capitalizeWord(inputName.value)
     } else {
       activity = capitalizeWord(inputAct.value)
+      main.setAttribute('data-show', '')
     }
   })
 }

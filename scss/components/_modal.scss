@@ -1,5 +1,3 @@
-@use 'animation';
-
 .modal {
   background-color: transparent;
   border: 0;
@@ -15,7 +13,7 @@
   animation: slide-up-enter 1.5s ease forwards;
 }
 
-.modal[data-closing] {
+.modal[closing] {
   display: block;
   inset: 0;
   pointer-events: none;
