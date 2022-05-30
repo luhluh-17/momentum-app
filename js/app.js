@@ -6,6 +6,8 @@ const inputAct = document.querySelector('[data-input-activity]')
 
 const main = document.querySelector('[data-main]')
 
+const dailyActivity = document.querySelector('[data-daily-activity]')
+
 let user, activity
 
 // TODO: Remove Debug Mode
@@ -35,6 +37,7 @@ function closeModal(curr, next) {
       displayUser(user)
     } else {
       activity = capitalizeWord(inputAct.value)
+      dailyActivity.value = activity
       main.setAttribute('data-show', '')
     }
   })
