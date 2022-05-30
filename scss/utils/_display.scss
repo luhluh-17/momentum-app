@@ -4,3 +4,10 @@
   gap: var(--space-lg);
   align-items: center;
 }
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-lg);
+  align-items: center;
+}

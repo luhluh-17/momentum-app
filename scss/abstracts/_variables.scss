@@ -14,5 +14,6 @@
   --space-xlg: calc(2 * var(--space-unit));
 
   // TODO: Set default value 1.5s
-  --anim-speed: 0s; 
+  // --anim-speed: 0; 
+  --anim-speed: 1.5s; 
 }

@@ -17,25 +17,34 @@
 <body>
   <div class="background"></div>
   <main data-main class="flex-col">
-    <div class="weather">
+
+    <section class="weather">
       <h4>Cloudy<i class="fa-solid fa-cloud-sun"></i></h4>
-    </div>
-    <div>
+    </section>
+
+    <section>
       <h1 data-clock>9:00 AM</h1>
       <h2><span data-greeting>Hello</span>, <span data-name>User</span>.</h2>
       <h3 class="mt-md">What is your main focus for today?</h3>
       <form class="mt-sm" method="dialog">
         <input type="text" class="text-input" data-daily-activity>
       </form>
-    </div>
-    <div>
-      <h4>
-        <i class="fa-solid fa-quote-left"></i>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, porro.
-        <i class="fa-solid fa-quote-right"></i>
-      </h4>
-      <h6>- Author -</h6>
-    </div>
+    </section>
+
+    <section class="quote flex-row" data-quote-container>
+      <button class="btn-icon" data-refresh-quote><i class="fa-solid fa-arrows-rotate"></i></button>
+      <div>
+        <h4>
+          <i class="fa-solid fa-quote-left"></i>
+          <em data-quote>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, porro.
+          </em>
+          <i class="fa-solid fa-quote-right"></i>
+        </h4>
+        <h5 data->- <span data-author>Author</span> -</h5>
+      </div>
+      <button class="btn-icon" data-menu-quote><i class="fa-solid fa-ellipsis"></i></button>
+    </section>
   </main>
 
   <dialog class="modal" data-modal-name>

@@ -8,6 +8,10 @@ const main = document.querySelector('[data-main]')
 
 const dailyActivity = document.querySelector('[data-daily-activity]')
 
+const quoteContainer = document.querySelector('[data-quote-container]')
+const btnQuoteRefresh = document.querySelector('[data-refresh-quote]')
+const btnQuoteMenu = document.querySelector('[data-menu-quote]')
+
 let user, activity
 
 // TODO: Remove Debug Mode
@@ -22,6 +26,7 @@ if (debugMode) {
 }
 
 setInterval(currentTime, 1000)
+quoteEvents()
 
 function closeModal(curr, next) {
   curr.addEventListener('close', () => {
@@ -89,4 +94,16 @@ function greetUser() {
   }
 
   document.querySelector('[data-greeting]').textContent = greet
+}
+
+function quoteEvents() {
+  quoteContainer.addEventListener('mouseover', () => {
+    btnQuoteRefresh.style.display = 'inline'
+    btnQuoteMenu.style.display = 'inline'
+  })
+  
+  quoteContainer.addEventListener('mouseout', () => {
+    btnQuoteRefresh.style.display = 'none'
+    btnQuoteMenu.style.display = 'none'
+  })
 }
