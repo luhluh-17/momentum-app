@@ -1,44 +1,23 @@
-body,
-dialog,
-input {
+body * {
   font-family: 'Roboto', sans-serif;
   color: white;
   text-align: center;
 }
 
-input[type='text'] {
-  &.colored {
-    font-size: var(--p);
+$elements: (
+  'h1': var(--h1),
+  'h2': var(--h2),
+  'h3': var(--h3),
+  'h4': var(--h4),
+  'h5': var(--h5),
+  'h6': var(--h6),
+  'p': var(--p),
+  "input[type='text'].colored": var(--p),
+  "input[type='text'].transparent": var(--h4),
+);
+
+@each $name, $value in $elements {
+  #{$name} {
+    font-size: $value;
   }
-  &.transparent {
-    font-size: var(--h4);
-  }
-}
-
-h1 {
-  font-size: var(--h1);
-}
-
-h2 {
-  font-size: var(--h2);
-}
-
-h3 {
-  font-size: var(--h3);
-}
-
-h4 {
-  font-size: var(--h4);
-}
-
-h5 {
-  font-size: var(--h5);
-}
-
-h6 {
-  font-size: var(--h6);
-}
-
-p {
-  font-size: var(--p);
 }
