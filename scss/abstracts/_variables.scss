@@ -7,14 +7,13 @@
   --h6: 0.8rem;
   --p: 1rem;
 
-  --space-unit: 1rem;
-  --space-xxs: calc(0.25 * var(--space-unit));
-  --space-xs: calc(0.5 * var(--space-unit));
-  --space-sm: calc(0.75 * var(--space-unit));
-  --space-df: calc(1 * var(--space-unit));
-  --space-md: calc(1.25 * var(--space-unit));
-  --space-lg: calc(1.5 * var(--space-unit));
-  --space-xlg: calc(2 * var(--space-unit));
+  --space-1: 0.25rem;
+  --space-2:  0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6:  1.75rem;
+  --space-7:  2rem;
 
   // TODO: Set default value 1.5s
   --anim-speed: 0s;

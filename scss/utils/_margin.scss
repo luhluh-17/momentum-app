@@ -1,11 +1,31 @@
-.ml {
-  margin-left: var(--space-xxs);
+$spacings: m, mt, mr, mb, ml, p, pt, pr, pb, pl;
+
+@mixin spacing($direction, $index) {
+  $value: calc($index * 0.25rem);
+  @if str-slice($direction, 1, 1) == 'm' {
+    @include direction(margin, $direction, $value);
+  } 
+  // @else if str-slice($direction, 1, 1) == 'p' {
+  //   @include direction(padding, $direction, $value);
+  // }
 }
 
-.mt-sm {
-  margin-top: var(--space-sm);
+@mixin direction($spacing, $direction, $value) {
+  @if str-slice($direction, 2, 2) == 't' {
+    #{$spacing}-top: $value;
+  } @else if str-slice($direction, 2, 2) == 'r' {
+    #{$spacing}-right: $value;
+  } @else if str-slice($direction, 2, 2) == 'b' {
+    #{$spacing}-bottom: $value;
+  } @else if str-slice($direction, 2, 2) == 'l' {
+    #{$spacing}-left: $value;
+  }
 }
 
-.mt-md {
-  margin-top: var(--space-md);
+@each $space in $spacings {
+  @for $i from 1 to 6 {
+    .#{$space}-#{$i} {
+      @include spacing($space, $i);
+    }
+  }
 }
