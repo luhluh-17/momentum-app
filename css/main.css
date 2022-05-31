@@ -11,7 +11,7 @@
   --space-md: calc(1.25 * var(--space-unit));
   --space-lg: calc(1.5 * var(--space-unit));
   --space-xlg: calc(2 * var(--space-unit));
-  --anim-speed: 1.5s;
+  --anim-speed: 0s;
 }
 
 html {
@@ -178,6 +178,11 @@ input[type=text]:focus {
   inset: 0;
   pointer-events: none;
   animation: slide-up-exit var(--anim-speed) ease forwards;
+}
+
+.quote {
+  width: 100%;
+  justify-content: center;
 }
 
 body {

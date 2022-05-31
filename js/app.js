@@ -1,3 +1,10 @@
+class Quotes {
+  constructor(quote, author) {
+    this.quote = quote
+    this.author = author
+  }
+}
+
 const modalName = document.querySelector('[data-modal-name]')
 const inputName = document.querySelector('[data-input-name]')
 
@@ -12,7 +19,31 @@ const quoteContainer = document.querySelector('[data-quote-container]')
 const btnQuoteRefresh = document.querySelector('[data-refresh-quote]')
 const btnQuoteMenu = document.querySelector('[data-menu-quote]')
 
+let quotes = [
+  new Quotes(
+    'If everyone is not special maybe you can be what you want to be.',
+    'Mob Choir'
+  ),
+  new Quotes(
+    "Don't judge each day by the harvest you reap but by the seeds that you plant.",
+    'Robert Louis Stevenson'
+  ),
+  new Quotes(
+    'The future belongs to those who believe in the beauty of their dreams.',
+    'Eleanor Roosevelt'
+  ),
+  new Quotes(
+    "Life is what happens when you're busy making other plans.",
+    'John Lenon'
+  ),
+  new Quotes(
+    'Spread love everywhere you go. Let no one ever come to you without leaving happier.',
+    'Mother Teresa'
+  ),
+]
+
 let user, activity
+let quoteIndex = getRandomQuoteIndex()
 
 // TODO: Remove Debug Mode
 const debugMode = true
@@ -27,6 +58,7 @@ if (debugMode) {
 
 setInterval(currentTime, 1000)
 quoteEvents()
+displayQuote()
 
 function closeModal(curr, next) {
   curr.addEventListener('close', () => {
@@ -57,10 +89,8 @@ function capitalizeWord(str) {
 }
 
 function displayUser(name) {
-  let placeholders = document.querySelectorAll('[data-name]')
-  placeholders.forEach((element) => {
-    element.textContent = name
-  })
+  const placeholders = document.querySelectorAll('[data-name]')
+  placeholders.forEach((element) => (element.textContent = name))
 }
 
 function currentTime() {
@@ -96,14 +126,32 @@ function greetUser() {
   document.querySelector('[data-greeting]').textContent = greet
 }
 
+function getRandomQuoteIndex(curr) {
+  const filterArr = quotes.filter((item) => quotes.indexOf(item) !== curr)
+  const randomQuote = filterArr[Math.floor(Math.random() * filterArr.length)]
+  return quotes.indexOf(randomQuote)
+}
+
+function displayQuote() {
+  const quote = document.querySelector('[data-quote]')
+  const author = document.querySelector('[data-author]')
+  quoteIndex = getRandomQuoteIndex(quoteIndex)
+  quote.textContent = quotes[quoteIndex].quote
+  author.textContent = quotes[quoteIndex].author
+}
+
 function quoteEvents() {
-  quoteContainer.addEventListener('mouseover', () => {
-    btnQuoteRefresh.style.display = 'inline'
-    btnQuoteMenu.style.display = 'inline'
-  })
-  
-  quoteContainer.addEventListener('mouseout', () => {
-    btnQuoteRefresh.style.display = 'none'
-    btnQuoteMenu.style.display = 'none'
-  })
+  quoteContainer.addEventListener('mouseover', () => setBtnDisplay('inline'))
+  quoteContainer.addEventListener('mouseout', () => setBtnDisplay('none'))
+  btnQuoteRefresh.addEventListener('click', () => displayQuote())
+  btnQuoteMenu.addEventListener('click', () => openQuoteMenu())
+}
+
+function setBtnDisplay(value) {
+  btnQuoteRefresh.style.display = value
+  btnQuoteMenu.style.display = value
+}
+
+function openQuoteMenu() {
+  alert('Menu')
 }
