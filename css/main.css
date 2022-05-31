@@ -1,8 +1,11 @@
 :root {
-  --heading1: 6rem;
-  --heading2: 3rem;
-  --heading3: 2rem;
-  --heading4: 1.75rem;
+  --h1: 6rem;
+  --h2: 3rem;
+  --h3: 2rem;
+  --h4: 1.75rem;
+  --h5: 1.3rem;
+  --h6: 0.8rem;
+  --p: 1rem;
   --space-unit: 1rem;
   --space-xxs: calc(0.25 * var(--space-unit));
   --space-xs: calc(0.5 * var(--space-unit));
@@ -46,20 +49,39 @@ input {
   text-align: center;
 }
 
-input[type=text] {
-  font-size: var(--heading2);
+input[type=text].colored {
+  font-size: var(--p);
+}
+input[type=text].transparent {
+  font-size: var(--h4);
 }
 
 h1 {
-  font-size: var(--heading1);
+  font-size: var(--h1);
 }
 
 h2 {
-  font-size: var(--heading2);
+  font-size: var(--h2);
 }
 
 h3 {
-  font-size: var(--heading3);
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+h6 {
+  font-size: var(--h6);
+}
+
+p {
+  font-size: var(--p);
 }
 
 .flex-col {
@@ -140,29 +162,43 @@ h3 {
 }
 
 .btn-icon {
-  display: none;
   border: 0;
   border-radius: 50%;
   padding: 8px;
   height: 32px;
   width: 32px;
 }
-
-input[type=text] {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid white;
+.btn-icon.none {
+  display: none;
 }
-input[type=text]:focus {
+
+.focused-state, input[type=text].transparent:focus, input[type=text].colored:focus {
   background: transparent;
   outline: none;
 }
 
+input[type=text] {
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+input[type=text].colored {
+  text-align: left;
+}
+input[type=text].transparent {
+  border-bottom: 2px solid white;
+}
 .modal {
-  background-color: transparent;
   border: 0;
   padding: var(--space-df);
   user-select: none;
+}
+.modal.colored {
+  background-color: rgba(15, 15, 15, 0.925);
+  border-radius: 16px;
+}
+.modal.transparent {
+  background-color: transparent;
 }
 
 .modal::backdrop {
@@ -178,6 +214,10 @@ input[type=text]:focus {
   inset: 0;
   pointer-events: none;
   animation: slide-up-exit var(--anim-speed) ease forwards;
+}
+
+.modal-header {
+  justify-content: space-between;
 }
 
 .quote {
@@ -197,10 +237,6 @@ main {
   width: 100vw;
   opacity: 0;
   padding: var(--space-md);
-}
-main input[type=text] {
-  font-size: var(--heading4);
-  width: 100%;
 }
 
 main[data-show] {

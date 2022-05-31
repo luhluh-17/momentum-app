@@ -27,31 +27,48 @@
       <h2><span data-greeting>Hello</span>, <span data-name>User</span>.</h2>
       <h3 class="mt-md">What is your main focus for today?</h3>
       <form class="mt-sm" method="dialog">
-        <input type="text" class="text-input" data-daily-activity>
+        <input type="text" class="transparent" data-daily-activity>
       </form>
     </section>
 
-    <section class="quote flex-row" data-quote-container>
-      <button class="btn-icon" data-refresh-quote><i class="fa-solid fa-arrows-rotate"></i></button>
+    <dialog open class="modal colored flex-col">
       <div>
-        <h4>
+        <header class="flex-row modal-header">
+          <button class="btn-icon">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <h5>Quote</h5>
+          <button class="btn-icon x">
+            <i class="fa-solid fa-expand"></i>
+          </button>
+        </header>
+
+        <form class="mt-sm" method="dialog">
+          <input type="text" class="colored" placeholder="New Quote" data-input-quote>
+        </form>
+      </div>
+    </dialog>
+    <section class="quote flex-row" data-quote-container>
+      <button class="btn-icon none" data-refresh-quote><i class="fa-solid fa-arrows-rotate"></i></button>
+      <div>
+        <p>
           <i class="fa-solid fa-quote-left"></i>
           <em data-quote>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, porro.
           </em>
           <i class="fa-solid fa-quote-right"></i>
-        </h4>
-        <h5 data->- <span data-author>Author</span> -</h5>
+        </p>
+        <h6 data->- <span data-author>Author</span> -</h6>
       </div>
-      <button class="btn-icon" data-menu-quote><i class="fa-solid fa-ellipsis"></i></button>
+      <button class="btn-icon none" data-menu-quote><i class="fa-solid fa-ellipsis"></i></button>
     </section>
   </main>
 
-  <dialog class="modal" data-modal-name>
+  <dialog class="modal transparent" data-modal-name>
     <div class="flex-col">
-      <h2>Hello there, how should I call you?</h2>
       <form class="flex-col" method="dialog">
-        <input type="text" class="text-input" data-input-name required autofocus>
+        <h2>Hello there, how should I call you?</h2>
+        <input type="text" class="transparent" data-input-name required autofocus>
         <button class="button" type="submit">
           Continue
           <i class="fa-solid fa-angle-right ml"></i>
@@ -60,12 +77,12 @@
     </div>
   </dialog>
 
-  <dialog class="modal" data-modal-activity>
+  <dialog class="modal transparent" data-modal-activity>
     <div class="flex-col">
-      <h2>Nice to meet you <span data-name>User</span>,</h2>
-      <h2>What is your main focus for today?</h2>
       <form class="flex-col" method="dialog">
-        <input type="text" class="text-input" data-input-activity autofocus>
+        <h2>Nice to meet you <span data-name>User</span>,</h2>
+        <h2>What is your main focus for today?</h2>
+        <input type="text" class="transparent" data-input-activity autofocus>
         <button class="button" type="submit">
           Continue
           <i class="fa-solid fa-angle-right ml"></i>

@@ -1,10 +1,24 @@
+.focused-state {
+  background: transparent;
+  outline: none;
+}
+
 input[type='text'] {
   background: transparent;
   border: none;
-  border-bottom: 2px solid white;
+  width: 100%;
 
-  &:focus {
-    background: transparent;
-    outline: none;
+  &.colored {
+    text-align: left;
+    &:focus {
+      @extend .focused-state;
+    }
+  }
+
+  &.transparent {
+    border-bottom: 2px solid white;
+    &:focus {
+      @extend .focused-state;
+    }
   }
 }

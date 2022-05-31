@@ -19,10 +19,13 @@
 
 .btn-icon {
   @extend .button-default;
-  display: none;
   border: 0;
   border-radius: 50%;
   padding: 8px;
   height: 32px;
   width: 32px;
+
+  &.none {
+    display: none;
+  }
 }

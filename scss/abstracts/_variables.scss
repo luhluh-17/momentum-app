@@ -1,8 +1,11 @@
 :root {
-  --heading1: 6rem;
-  --heading2: 3rem;
-  --heading3: 2rem;
-  --heading4: 1.75rem;
+  --h1: 6rem;
+  --h2: 3rem;
+  --h3: 2rem;
+  --h4: 1.75rem;
+  --h5: 1.3rem;
+  --h6: 0.8rem;
+  --p: 1rem;
 
   --space-unit: 1rem;
   --space-xxs: calc(0.25 * var(--space-unit));
@@ -14,6 +17,6 @@
   --space-xlg: calc(2 * var(--space-unit));
 
   // TODO: Set default value 1.5s
-  --anim-speed: 0s; 
-  // --anim-speed: 1.5s; 
+  --anim-speed: 0s;
+  // --anim-speed: 1.5s;
 }

@@ -10,11 +10,6 @@ main {
   width: 100vw;
   opacity: 0;
   padding: var(--space-md);
-
-  input[type='text'] {
-    font-size: var(--heading4);
-    width: 100%;
-  }
 }
 
 main[data-show] {

@@ -7,17 +7,38 @@ input {
 }
 
 input[type='text'] {
-  font-size: var(--heading2);
+  &.colored {
+    font-size: var(--p);
+  }
+  &.transparent {
+    font-size: var(--h4);
+  }
 }
 
 h1 {
-  font-size: var(--heading1);
+  font-size: var(--h1);
 }
 
 h2 {
-  font-size: var(--heading2);
+  font-size: var(--h2);
 }
 
 h3 {
-  font-size: var(--heading3);
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+h6 {
+  font-size: var(--h6);
+}
+
+p {
+  font-size: var(--p);
 }
