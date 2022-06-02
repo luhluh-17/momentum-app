@@ -16,7 +16,7 @@ let user = ''
 let activity = ''
 
 // TODO: Remove Debug Mode
-const debugMode = false
+const debugMode = true
 if (debugMode) {
   main.setAttribute('data-show', '')
   user = 'Debug Mode'

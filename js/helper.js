@@ -1,12 +1,11 @@
-export const animateModal = (curr, next, myCallback) => {
+export const animateModal = (curr, next, cb) => {
   curr.addEventListener('close', () => {
     curr.setAttribute('closing', '')
     curr.addEventListener('animationend', () => {
       curr.close()
       curr.removeAttribute('closing')
     })
-    // TODO: Ask what happens if callback has no param
-    myCallback(next)
+    cb(next)
   })
 }
 
