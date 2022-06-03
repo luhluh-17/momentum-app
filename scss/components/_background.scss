@@ -2,11 +2,19 @@
   position: fixed;
   display: block;
   inset: 0;
-  background-color: hsl(0, 0%, 80%);
+  background-color: hsl(0, 0%, 85%);
   background-image: url('../assets/bg-min.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
   z-index: -1;
+}
+
+#background-time {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  padding: var(--space-5);
 }

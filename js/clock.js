@@ -3,12 +3,12 @@ export const displayTime = () => {
   let hh = date.getHours()
   let mm = date.getMinutes()
 
-  let session = hh < 12 ? 'am' : 'pm'
   hh = hh === 0 ? 12 : hh
   hh = hh > 12 ? hh - 12 : hh
+  hh = hh < 10 ? `0${hh}` : hh 
   mm = mm < 10 ? `0${mm}` : mm
 
-  document.querySelector('[data-clock]').textContent = `${hh}:${mm} ${session}`
+  document.querySelector('[data-clock]').textContent = `${hh}:${mm}`
 }
 
 export const greetUser = () => {

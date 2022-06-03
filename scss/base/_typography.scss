@@ -1,7 +1,12 @@
 body * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Heebo', sans-serif;
   color: white;
   text-align: center;
+}
+
+h1 {
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
 }
 
 $elements: (
