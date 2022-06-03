@@ -14,6 +14,7 @@
   --space-6: 1.75rem;
   --space-7: 2rem;
   --anim-speed: 0s;
+  --anim-speed: 1.5s;
 }
 
 html {
@@ -256,7 +257,7 @@ input[type=text].transparent {
   width: 2rem;
 }
 .btn-icon.none {
-  display: none;
+  visibility: hidden;
 }
 
 .focused-state, input[type=text].transparent:focus, input[type=text].colored:focus {

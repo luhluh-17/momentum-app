@@ -15,8 +15,8 @@ export const quoteListener = () => {
   const btnExpand = document.querySelector('[data-expand-quote]')
 
   const buttons = [btnRefresh, btnMenu]
-  const SHOW = 'inline'
-  const HIDE = 'none'
+  const SHOW = 'visible'
+  const HIDE = 'hidden'
 
   storeQuotes()
   getList()

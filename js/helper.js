@@ -31,5 +31,5 @@ export const displayUser = (name) => {
 }
 
 export const setDisplay = (arr, value) => {
-  arr.forEach((element) => (element.style.display = value))
+  arr.forEach((element) => (element.style.visibility = value))
 }
