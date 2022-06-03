@@ -13,6 +13,7 @@ const modalAct = document.querySelector('[data-modal-activity]')
 const inputAct = document.querySelector('[data-input-activity]')
 
 const main = document.querySelector('[data-main]')
+const clockContainer = document.querySelector('[data-clock-container]')
 
 const dailyActivity = document.querySelector('[data-daily-activity]')
 const btnLogut = document.querySelector('[data-logout]')
@@ -60,4 +61,5 @@ function showMain() {
   }
   dailyActivity.value = localStorage.getItem(KEY_ACTIVITY)
   main.setAttribute('data-show', '')
+  clockContainer.setAttribute('data-show', '')
 }

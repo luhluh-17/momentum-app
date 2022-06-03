@@ -16,5 +16,10 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
+  opacity: 0;
   padding: var(--space-5);
+}
+
+#background-time[data-show] {
+  animation: slide-up-enter var(--anim-speed) ease forwards;
 }
