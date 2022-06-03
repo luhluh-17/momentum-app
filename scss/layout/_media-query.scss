@@ -1,0 +1,17 @@
+$smartphone-max: 500px;
+$tablet-min: 501px;
+$tablet-max: 768px;
+
+/* Smartphones */
+@media only screen and (max-width: $smartphone-max) {
+  :root {
+    font-size: 8px;
+  }
+}
+
+/* Tablet */
+@media (min-width: $tablet-min) and (max-width: $tablet-max) {
+  :root {
+    font-size: 12px;
+  }
+}
