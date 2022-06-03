@@ -1,6 +1,6 @@
 import { displayTime, greetUser } from './clock.js'
 import { animateModal, capitalizeWord, displayUser } from './helper.js'
-import { initEventListener } from './quotes.js'
+import { quoteListener } from './quotes.js'
 import { todoListener } from './todo.js'
 
 const modalName = document.querySelector('[data-modal-name]')
@@ -32,7 +32,7 @@ setInterval(() => {
   greetUser()
 }, 1000)
 
-initEventListener()
+quoteListener()
 todoListener()
 
 function showNext(next) {

@@ -1,10 +1,12 @@
-import { setDisplay, capitalizeWord } from './helper.js'
+import { clearForm, setDisplay, capitalizeWord } from './helper.js'
 
+const KEY = 'quotes'
 const modal = document.querySelector('[data-modal-quote]')
 const form = document.querySelector('[data-quote-form]')
+let quoteList = []
 let quoteIndex = 0
 
-export const initEventListener = () => {
+export const quoteListener = () => {
   const container = document.querySelector('[data-quote-container]')
   const btnRefresh = document.querySelector('[data-refresh-quote]')
   const btnMenu = document.querySelector('[data-menu-quote]')
@@ -16,29 +18,47 @@ export const initEventListener = () => {
   const SHOW = 'inline'
   const HIDE = 'none'
 
-  setQuoteIndex()
+  storeQuotes()
+  getList()
+  getRandomQuote()
 
   container.addEventListener('mouseover', () => setDisplay(buttons, SHOW))
   container.addEventListener('mouseout', () => setDisplay(buttons, HIDE))
-  btnRefresh.addEventListener('click', setQuoteIndex)
+  btnRefresh.addEventListener('click', getRandomQuote)
   btnMenu.addEventListener('click', openMenu)
   btnClose.addEventListener('click', closeMenu)
   form.addEventListener('submit', submit)
 }
 
-// TODO Store in local storage
-const addQuote = (quote, author) => {
-  quotes.push(new Quote(capitalizeWord(quote), capitalizeWord(author)))
-  displayQuote(quoteIndex, 'new')
+const getList = () => {
+  quoteList = JSON.parse(localStorage.getItem(KEY))
+  console.log(quoteList)
 }
+
+const storeQuotes = (mode = 'normal') => {
+  if (mode === 'normal' && localStorage.getItem(KEY) === null) {
+    localStorage.setItem(KEY, JSON.stringify(_quoteList))
+  } else if (mode === 'force') {
+    localStorage.setItem(KEY, JSON.stringify(quoteList))
+  }
+}
+
+const getRandomQuote = () => (quoteIndex = displayQuote(quoteIndex))
+const openMenu = () => modal.showModal()
+const closeMenu = () => modal.close()
 
 const submit = () => {
   let quote = form.elements[0].value
   let author = form.elements[1].value
   addQuote(quote, author)
-  // TODO create helper to clear only input[type='text']
-  form.elements[0].value = ''
-  form.elements[1].value = ''
+  clearForm(form.elements)
+}
+
+const addQuote = (quote, author) => {
+  const newQuote = new Quote(capitalizeWord(quote), capitalizeWord(author))
+  quoteList.push(newQuote)
+  storeQuotes('force')
+  displayQuote(quoteIndex, 'new')
 }
 
 const displayQuote = (curr, view = 'random') => {
@@ -47,28 +67,17 @@ const displayQuote = (curr, view = 'random') => {
 
   let index = 0
   if (view === 'random') {
-    index = randomQuote(curr)
+    const arr = quoteList.filter((item) => quoteList.indexOf(item) !== curr)
+    const randomQuote = arr[Math.floor(Math.random() * arr.length)]
+    index = quoteList.indexOf(randomQuote)
   } else if (view === 'new') {
-    index = quotes.length - 1
+    index = quoteList.length - 1
   }
 
-  quote.textContent = quotes[index].quote
-  author.textContent = quotes[index].author
+  quote.textContent = quoteList[index].quote
+  author.textContent = quoteList[index].author
 
   return index
-}
-
-const openMenu = () => modal.showModal()
-const closeMenu = () => modal.close()
-
-const randomQuote = (curr) => {
-  const arr = quotes.filter((item) => quotes.indexOf(item) !== curr)
-  const randomQuote = arr[Math.floor(Math.random() * arr.length)]
-  return quotes.indexOf(randomQuote)
-}
-
-const setQuoteIndex = () => {
-  quoteIndex = displayQuote(quoteIndex)
 }
 
 class Quote {
@@ -78,7 +87,7 @@ class Quote {
   }
 }
 
-const quotes = [
+const _quoteList = [
   new Quote(
     'If everyone is not special maybe you can be what you want to be.',
     'Mob Choir'
