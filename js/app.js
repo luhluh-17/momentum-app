@@ -3,6 +3,9 @@ import { animateModal, capitalizeWord, displayUser } from './helper.js'
 import { quoteListener } from './quotes.js'
 import { todoListener } from './todo.js'
 
+const KEY_NAME = 'name'
+const KEY_ACTIVITY = 'activity'
+
 const modalName = document.querySelector('[data-modal-name]')
 const inputName = document.querySelector('[data-input-name]')
 
@@ -12,19 +15,19 @@ const inputAct = document.querySelector('[data-input-activity]')
 const main = document.querySelector('[data-main]')
 
 const dailyActivity = document.querySelector('[data-daily-activity]')
+const btnLogut = document.querySelector('[data-logout]')
 
 let user = ''
 let activity = ''
 
-// TODO: Remove Debug Mode
-const debugMode = true
-if (debugMode) {
-  main.setAttribute('data-show', '')
-  user = 'Debug Mode'
-  displayUser(user)
-} else {
-  window.onload = () => modalName.showModal()
+if (localStorage.getItem(KEY_NAME) === null) {
+  modalName.showModal()
   animateModal(modalName, modalAct, showNext)
+} else {
+  user = localStorage.getItem(KEY_NAME)
+  activity = localStorage.getItem(KEY_ACTIVITY)
+  displayUser(user)
+  showMain()
 }
 
 setInterval(() => {
@@ -35,18 +38,26 @@ setInterval(() => {
 quoteListener()
 todoListener()
 
+btnLogut.addEventListener('click', () => {
+  localStorage.clear()
+  window.location.reload()
+})
+
 function showNext(next) {
   if (next === modalAct) {
     next.showModal()
     animateModal(next, null, showMain)
-    // TODO: Store user into local storage
     user = capitalizeWord(inputName.value)
+    localStorage.setItem(KEY_NAME, user)
     displayUser(user)
   }
 }
 
 function showMain() {
   activity = capitalizeWord(inputAct.value)
-  dailyActivity.value = activity
+  if (localStorage.getItem(KEY_ACTIVITY) === null) {
+    localStorage.setItem(KEY_ACTIVITY, activity)
+  }
+  dailyActivity.value = localStorage.getItem(KEY_ACTIVITY)
   main.setAttribute('data-show', '')
 }
