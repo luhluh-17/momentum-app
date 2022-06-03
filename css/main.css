@@ -47,7 +47,7 @@ body * {
 }
 
 h1 {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.25);
   font-weight: 700;
 }
 
@@ -210,8 +210,7 @@ input[type=text].transparent {
   position: fixed;
   display: block;
   inset: 0;
-  background-color: hsl(0deg, 0%, 85%);
-  background-image: url("../assets/bg-min.jpg");
+  background-color: hsl(0deg, 0%, 55%);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
