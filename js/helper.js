@@ -30,6 +30,14 @@ export const displayUser = (name) => {
   placeholders.forEach((element) => (element.textContent = name))
 }
 
+export const saveData = (key, oldList, newList, mode = 'normal') => {
+  if (mode === 'normal' && localStorage.getItem(key) === null) {
+    localStorage.setItem(key, JSON.stringify(oldList))
+  } else if (mode === 'force') {
+    localStorage.setItem(key, JSON.stringify(newList))
+  }
+}
+
 export const setDisplay = (arr, value) => {
   arr.forEach((element) => (element.style.visibility = value))
 }

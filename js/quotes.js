@@ -1,6 +1,6 @@
-import { clearForm, setDisplay, capitalizeWord } from './helper.js'
+import { clearForm, setDisplay, capitalizeWord, saveData } from './helper.js'
 
-const KEY = 'quotes'
+const KEY_QUOTES = 'quotes'
 const modal = document.querySelector('[data-modal-quote]')
 const form = document.querySelector('[data-quote-form]')
 let quoteList = []
@@ -18,7 +18,7 @@ export const quoteListener = () => {
   const SHOW = 'visible'
   const HIDE = 'hidden'
 
-  storeQuotes()
+  saveData(KEY_QUOTES, _quoteList, quoteList)
   getList()
   getRandomQuote()
 
@@ -31,16 +31,8 @@ export const quoteListener = () => {
 }
 
 const getList = () => {
-  quoteList = JSON.parse(localStorage.getItem(KEY))
-  console.log(quoteList)
-}
-
-const storeQuotes = (mode = 'normal') => {
-  if (mode === 'normal' && localStorage.getItem(KEY) === null) {
-    localStorage.setItem(KEY, JSON.stringify(_quoteList))
-  } else if (mode === 'force') {
-    localStorage.setItem(KEY, JSON.stringify(quoteList))
-  }
+  quoteList = JSON.parse(localStorage.getItem(KEY_QUOTES))
+  console.log('Quotes', quoteList)
 }
 
 const getRandomQuote = () => (quoteIndex = displayQuote(quoteIndex))
@@ -57,7 +49,7 @@ const submit = () => {
 const addQuote = (quote, author) => {
   const newQuote = new Quote(capitalizeWord(quote), capitalizeWord(author))
   quoteList.push(newQuote)
-  storeQuotes('force')
+  saveData(KEY_QUOTES, _quoteList, quoteList, 'force')
   displayQuote(quoteIndex, 'new')
 }
 

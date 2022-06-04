@@ -1,3 +1,5 @@
+import { saveData } from './helper.js'
+
 const modal = document.querySelector('[data-modal-todo]')
 const form = document.querySelector('[data-form-todo]')
 const container = document.querySelector('[data-list-todo]')
@@ -8,21 +10,13 @@ export const todoListener = () => {
   const btnOpen = document.querySelector('[data-open-todo]')
   const btnClose = document.querySelector('[data-close-todo]')
 
-  storeTodo()
+  saveData(KEY_TODO, _todoList, todoList)
   getList()
   displayTodoList()
 
   btnOpen.addEventListener('click', openMenu)
   btnClose.addEventListener('click', closeMenu)
   form.addEventListener('submit', submit)
-}
-
-const storeTodo = (mode = 'normal') => {
-  if (mode === 'normal' && localStorage.getItem(KEY_TODO) === null) {
-    localStorage.setItem(KEY_TODO, JSON.stringify(_todoList))
-  } else if (mode === 'force') {
-    localStorage.setItem(KEY_TODO, JSON.stringify(todoList))
-  }
 }
 
 const getList = () => {
@@ -49,7 +43,7 @@ const submit = () => {
 const addTodo = (activity) => {
   let todo = new Todo(activity)
   todoList.push(todo)
-  storeTodo('force')
+  saveData(KEY_TODO, _todoList, todoList, 'force')
   createListItem(todo)
 }
 
