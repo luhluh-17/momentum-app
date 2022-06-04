@@ -1,11 +1,15 @@
 const modal = document.querySelector('[data-modal-todo]')
 const form = document.querySelector('[data-form-todo]')
 const container = document.querySelector('[data-list-todo]')
+const KEY_TODO = 'todo'
+let todoList = []
 
 export const todoListener = () => {
   const btnOpen = document.querySelector('[data-open-todo]')
   const btnClose = document.querySelector('[data-close-todo]')
 
+  storeTodo()
+  getList()
   displayTodoList()
 
   btnOpen.addEventListener('click', openMenu)
@@ -13,14 +17,21 @@ export const todoListener = () => {
   form.addEventListener('submit', submit)
 }
 
+const storeTodo = (mode = 'normal') => {
+  if (mode === 'normal' && localStorage.getItem(KEY_TODO) === null) {
+    localStorage.setItem(KEY_TODO, JSON.stringify(_todoList))
+  } else if (mode === 'force') {
+    localStorage.setItem(KEY_TODO, JSON.stringify(todoList))
+  }
+}
+
+const getList = () => {
+  todoList = JSON.parse(localStorage.getItem(KEY_TODO))
+  console.log('TodoList', todoList)
+}
+
 const openMenu = () => modal.showModal()
 const closeMenu = () => modal.close()
-
-const addTodo = (activity) => {
-  let todo = new Todo(activity)
-  todoList.push(todo)
-  createListItem(todo)
-}
 
 // TODO Add Scrollbar inside modal
 const displayTodoList = () => {
@@ -29,12 +40,25 @@ const displayTodoList = () => {
   })
 }
 
+const submit = () => {
+  let activity = form.elements[0].value
+  addTodo(activity)
+  form.elements[0].value = ''
+}
+
+const addTodo = (activity) => {
+  let todo = new Todo(activity)
+  todoList.push(todo)
+  storeTodo('force')
+  createListItem(todo)
+}
+
 // TODO Add eventlister to cb | add text-decor to label
 const createListItem = (obj) => {
   const listItem = document.createElement('li')
   listItem.classList.add('flex-row')
   listItem.classList.add('fill-width')
-  
+
   const div = document.createElement('div')
   div.append(createCheckbox(obj))
   div.append(createLabel(obj))
@@ -71,12 +95,6 @@ const createIconBtn = () => {
   return btn
 }
 
-const submit = () => {
-  let activity = form.elements[0].value
-  addTodo(activity)
-  form.elements[0].value = ''
-}
-
 class Todo {
   constructor(activity, priority = 3) {
     this.activity = activity
@@ -84,4 +102,4 @@ class Todo {
   }
 }
 
-const todoList = [new Todo('Fix Code', 1)]
+const _todoList = [new Todo('Fix Code', 1)]
