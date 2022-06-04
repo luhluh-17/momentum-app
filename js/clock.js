@@ -34,7 +34,10 @@ export const greetUser = () => {
 }
 
 const updateBackground = (tags) => {
-  const bg = document.querySelector('[data-background]')
-  let link = `url('https://source.unsplash.com/1600x900/?${tags}')`
-  bg.style.backgroundImage = link
+  if (true) {
+    const bg = document.querySelector('[data-background]')
+    let url = `url('https://source.unsplash.com/1600x900/?${tags}')`
+    bg.style.backgroundImage = url
+  }
+  
 }
