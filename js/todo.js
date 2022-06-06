@@ -55,8 +55,14 @@ const createListItem = (obj) => {
   div.append(createLabel(obj))
 
   listItem.append(div)
-  listItem.append(createIconBtn())
+  const btn = createIconBtn()
+  listItem.append(btn)
   container.append(listItem)
+
+  btn.addEventListener('click', () => {
+    removeTodo(obj)
+    listItem.style.display = 'none'
+  })
 }
 
 const createLabel = (obj) => {
@@ -84,6 +90,12 @@ const createIconBtn = () => {
 
   btn.append(icon)
   return btn
+}
+
+const removeTodo = (obj) => {
+  const index = todoList.indexOf(obj)
+  todoList.splice(index, 1)
+  saveData(KEY_TODO, _todoList, todoList, 'force')
 }
 
 class Todo {
