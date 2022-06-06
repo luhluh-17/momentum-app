@@ -19,10 +19,7 @@ export const todoListener = () => {
   form.addEventListener('submit', submit)
 }
 
-const getList = () => {
-  todoList = JSON.parse(localStorage.getItem(KEY_TODO))
-  console.log('TodoList', todoList)
-}
+const getList = () => (todoList = JSON.parse(localStorage.getItem(KEY_TODO)))
 
 const openMenu = () => modal.showModal()
 const closeMenu = () => modal.close()

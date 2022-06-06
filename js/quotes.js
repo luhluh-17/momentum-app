@@ -30,10 +30,7 @@ export const quoteListener = () => {
   form.addEventListener('submit', submit)
 }
 
-const getList = () => {
-  quoteList = JSON.parse(localStorage.getItem(KEY_QUOTES))
-  console.log('Quotes', quoteList)
-}
+const getList = () => quoteList = JSON.parse(localStorage.getItem(KEY_QUOTES))
 
 const getRandomQuote = () => (quoteIndex = displayQuote(quoteIndex))
 const openMenu = () => modal.showModal()
